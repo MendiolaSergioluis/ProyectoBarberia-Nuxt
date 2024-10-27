@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "colors": "^1.4.0",
     "i": "^0.3.7",
     "mongoose": "^8.7.3",
