@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import colors from 'colors'
 
 export default defineNitroPlugin(async () => {
+
   const config = useRuntimeConfig();
   try {
     const db = await mongoose.connect(config.MONGO_URI)
@@ -13,4 +14,5 @@ export default defineNitroPlugin(async () => {
       process.exit(1)
     }
   }
+
 });
