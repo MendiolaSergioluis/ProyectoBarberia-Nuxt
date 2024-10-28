@@ -5,6 +5,7 @@ definePageMeta({
 useHead({
   title: 'Detalles de la Cita',
 })
+
 </script>
 
 <template>
