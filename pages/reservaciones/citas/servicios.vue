@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import {useServicesStore} from "~/stores/services";
+import type {TService} from "~/types";
+import userFetchWithCache from "~/composables/userFetchWithCache";
 
 definePageMeta({
   name: 'servicios-cita',
@@ -7,8 +9,13 @@ definePageMeta({
 useHead({
   title: 'Servicios Disponibles',
 })
-// TODO: Evaluar el Pasar el $fetch que carga los datos de los servicios al componente si solo se usa una vez en la web, para poder guardar la petición en cache con useFetch
 const serviceStore = useServicesStore()
+try {
+  const data = await userFetchWithCache<TService[]>('/api/services')
+  serviceStore.setData(data) // Ignora el error, useFetch no funciona con pinia
+} catch (error) {
+  console.log(error)
+}
 </script>
 
 <template>
