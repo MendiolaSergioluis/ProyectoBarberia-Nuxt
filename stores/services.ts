@@ -11,12 +11,12 @@ export const useServicesStore = defineStore('serviceStore', () => {
       console.log(error)
     }
   })*/
-  const setData = (data: TService[]) => {
+  const overwriteServices = (data: TService[]) => {
     services.value = data;
   }
 
   return {
     services,
-    setData
+    overwriteServices
   };
 })

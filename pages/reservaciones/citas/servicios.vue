@@ -11,8 +11,8 @@ useHead({
 })
 const serviceStore = useServicesStore()
 try {
-  const data = await userFetchWithCache<TService[]>('/api/services')
-  serviceStore.setData(data) // Ignora el error, useFetch no funciona con pinia
+  const services = await userFetchWithCache<TService[]>('/api/services')
+  serviceStore.overwriteServices(services) // Ignora el error, useFetch no funciona con pinia
 } catch (error) {
   console.log(error)
 }
@@ -26,7 +26,7 @@ try {
       <div class="grid grid-cols-2 gap-5 mt-5">
         <ServiceItem
             v-for="service in serviceStore.services"
-            :key="service._id"
+            :key="service._id as string"
             :service="service"
         />
       </div>
