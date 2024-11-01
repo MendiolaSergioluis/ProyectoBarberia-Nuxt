@@ -17,7 +17,9 @@
     >Cita y Resumen
     </NuxtLink>
   </nav>
-  <slot/>
+  <div class="space-y-5">
+    <slot/>
+  </div>
 </template>
 
 <style scoped>

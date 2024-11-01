@@ -12,7 +12,7 @@ useHead({
 const serviceStore = useServicesStore()
 try {
   const services = await userFetchWithCache<TService[]>('/api/services')
-  serviceStore.overwriteServices(services) // Ignora el error, useFetch no funciona con pinia
+  serviceStore.overwriteServices(services)
 } catch (error) {
   console.log(error)
 }
