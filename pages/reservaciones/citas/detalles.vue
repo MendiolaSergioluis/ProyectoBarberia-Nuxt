@@ -8,6 +8,7 @@ definePageMeta({
 useHead({
   title: 'Detalles de la Cita',
 })
+const date = ref(new Date())
 const appointments = useAppointmentsStore()
 </script>
 
@@ -34,8 +35,22 @@ const appointments = useAppointmentsStore()
           Total a pagar:
           <span class="font-black">{{ formatCurrency(appointments.totalAmount) }}</span>
         </p>
-
       </div>
+      <div
+          v-if="!appointments.noServiceSelected"
+          class="space-y-8">
+        <h3 class="text-3xl font-extrabold text-white">Fecha y Hora</h3>
+
+        <div class="lg:flex gap-5 items-start">
+          <div class="w-full lg:w-96 flex justify-center rounded-lg">
+            <VDatePicker v-model="date" mode="date" />
+          </div>
+          <div>
+
+          </div>
+        </div>
+      </div>
+
 
     </NuxtLayout>
   </NuxtLayout>
