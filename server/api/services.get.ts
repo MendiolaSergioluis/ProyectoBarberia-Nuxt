@@ -1,7 +1,7 @@
 // OBTENER TODOS LOS SERVICIOS
 import Services from "~/server/models/Services";
 import colors from "colors";
-import {TService} from "~/types";
+import type {TService} from "~/types";
 
 export default defineEventHandler(async (event) => {
   try {
