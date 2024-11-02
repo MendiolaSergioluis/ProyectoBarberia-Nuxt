@@ -14,5 +14,6 @@ export default defineEventHandler(async (event) => {
   // Eliminar el servicio
   await service!.deleteOne();
   setResponseStatus(event, 200)
+
   return { message: 'Servicio eliminado correctamente.' };
 });
